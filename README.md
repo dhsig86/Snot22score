@@ -1,0 +1,2 @@
+# Snot22score
+SNOT22 CALCULATOR
