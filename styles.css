@@ -2,6 +2,11 @@
     display: none;
 }
 
+.text-justify{
+    text-align: justify;
+
+}
+
 #introduction {
     max-width: 800px; /* Limita a largura do texto para melhor legibilidade */
     margin: 0 auto; /* Centraliza a introdução */
