@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resultElement.style.backgroundColor = backgroundColor;
         resultElement.style.borderLeft = `5px solid ${fontColor}`;
     
-        const scoreHtml = `<h2 style="margin-top: 0;">Pontuação SNOT-20: <strong>${score}</strong></h2>`;
+        const scoreHtml = `<h2 style="margin-top: 0;">Pontuação SNOT-22: <strong>${score}</strong></h2>`;
         const impactHtml = `<p>Uma pontuação mais alta indica uma pior qualidade de vida.</p>`;
         let symptomsListHtml = '<h3>Piores Sintomas:</h3><ul>';
         for (let symptom of top5SymptomsLabels) {
