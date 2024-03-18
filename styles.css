@@ -1,0 +1,295 @@
+#snot-22-form, .question-group, .navigation-buttons, #result {
+    display: none;
+}
+
+#introduction {
+    max-width: 800px; /* Limita a largura do texto para melhor legibilidade */
+    margin: 0 auto; /* Centraliza a introdução */
+    padding: 20px;
+    background-color: #fff; /* Opcional: um fundo diferente para destacar */
+    border-radius: 8px; /* Opcional: adiciona bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opcional: adiciona sombra para destaque */
+    margin-bottom: 20px; /* Espaço antes do início do formulário */
+}
+
+#introduction p {
+    margin-bottom: 1em; /* Adiciona espaço entre os parágrafos */
+    line-height: 1.5; /* Melhora a legibilidade do texto */
+}
+#startButton {
+    background-color: #0047AB; /* Azul Royal Escuro */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    display: block;
+    width: auto; /* Permite que o tamanho do botão se ajuste ao texto */
+    margin-left: auto; /* Junto com margin-right: auto, centraliza o botão */
+    margin-right: auto;
+}
+
+#startButton:hover {
+    background-color: #008000; /* Verde no hover */
+}
+#result {
+    margin: 20px auto; /* Centraliza a div */
+    padding: 20px;
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave */
+    max-width: 600px; /* Largura máxima para manter o conteúdo legível */
+    text-align: center; /* Alinha o texto ao centro */
+}
+#introduction img {
+    max-width: 100%;
+    max-height: 200px; /* limita a altura da imagem */
+    display: block;
+    margin: 0 auto 20px; /* adiciona uma margem abaixo da imagem */
+}
+
+
+/* Estilo para a lista de sintomas */
+#result ul {
+    list-style: none; /* Remove estilos padrão de lista */
+    padding: 0;
+    text-align: left; /* Texto alinhado à esquerda */
+}
+
+#result li {
+    margin-bottom: 5px; /* Espaço entre os itens da lista */
+}
+.btn-calcular {
+    padding: 15px 30px; /* Maior que o padding padrão para ser mais chamativo */
+    font-size: 18px; /* Tamanho de fonte maior para mais visibilidade */
+    background-color: #28a745; /* Um verde mais vibrante */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold; /* Torna o texto em negrito */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Adiciona uma sombra para um efeito 3D */
+    transition: all 0.3s; /* Efeito de transição suave para hover */
+    width: auto; /* Permite que o tamanho do botão se ajuste ao texto */
+    margin-left: auto; /* Junto com margin-right: auto, centraliza o botão */
+    margin-right: auto;
+}
+
+.btn-calcular:hover {
+    background-color: #218838; /* Um verde ainda mais escuro no hover */
+    box-shadow: 0 12px 20px 0 rgba(0,0,0,0.35); /* Sombra mais escura para o efeito ao passar o mouse */
+}
+
+
+#restartButton {
+    background-color: red; /* Cor de fundo vermelha */
+    color: white; /* Texto branco para contraste */
+    border: none; /* Sem borda */
+    padding: 10px 20px; /* Padding interno maior */
+    border-radius: 50px; /* Bordas totalmente arredondadas */
+    cursor: pointer; /* Cursor de clique */
+    margin-top: 20px; /* Espaço acima do botão */
+    display: block; /* Exibir como bloco */
+    width: auto; /* Largura automática baseada no conteúdo */
+    margin: 20px auto; /* Centraliza o botão horizontalmente */
+    transition: background-color 0.3s, transform 0.3s, font-size 0.3s; /* Transição suave para hover e clique */
+}
+
+#restartButton:hover, #restartButton:focus {
+    background-color: darkred; /* Cor de fundo mais escura no hover e foco */
+    transform: translateY(-2px); /* Movimento de "pressão" */
+    font-size: 105%; /* Aumento da fonte */
+}
+
+#restartButton:active {
+    transform: translateY(1px); /* Movimento de "apertar" */
+}
+
+
+#restartButton {
+    display: block; /* Para ser exibido como um bloco */
+    width: 200px; /* Largura definida */
+    margin: 20px auto; /* Centraliza o botão horizontalmente */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Tamanho máximo do formulário */
+    margin: 0 auto; /* Centraliza o formulário horizontalmente */
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+select {
+    border: 2px solid #007bff; /* Borda azul */
+    border-radius: 4px; /* Bordas arredondadas */
+    padding: 5px; /* Padding interno */
+    margin-top: 5px; /* Espaço acima do seletor */
+    background-color: #f8f8f8; /* Cor de fundo */
+    -webkit-appearance: none; /* Remove estilo padrão no Chrome e Safari */
+    -moz-appearance: none; /* Remove estilo padrão no Firefox */
+    appearance: none; /* Remove estilo padrão para outros navegadores */
+}
+
+
+select {
+    -webkit-appearance: none; /* Remove o estilo padrão no Chrome e Safari */
+    -moz-appearance: none; /* Remove o estilo padrão no Firefox */
+    appearance: none; /* Remove o estilo padrão para outros navegadores */
+    padding: 10px;
+    padding-right: 30px;
+    border: 1px solid #007bff; /* Cor da borda */
+    border-radius: 5px; /* Borda arredondada */
+    background-color: #f8f8f8;
+    position: relative;
+    background-image: url('https://i.ibb.co/rQnvVkm/arrow-down.png'); /* Caminho para um ícone de seta */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Posiciona o ícone de seta */
+    background-size: 15px; /* Tamanho do ícone de seta */
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: auto; /* Permite que o tamanho do botão se ajuste ao seu conteúdo */
+    display: inline-block; /* Exibe os botões lado a lado */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+#snot-20-form, .question-group {
+    display: none;
+}
+
+#progress-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    transition: width 0.4s ease;
+}
+
+/* Ajustes para a responsividade e espaçamento dos botões */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Garante que os botões possam quebrar a linha em telas pequenas */
+}
+
+.navigation-buttons button {
+    flex-grow: 1; /* Faz com que os botões cresçam igualmente para ocupar o espaço disponível */
+    margin: 5px; /* Adiciona um espaçamento entre os botões */
+}
+
+
+/* Media queries para ajustes em telas menores */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        margin-bottom: 15px;
+    }
+
+    .navigation-buttons button {
+        font-size: 14px; /* Ajusta o tamanho da fonte para melhor legibilidade em telas pequenas */
+    }
+
+    form {
+        padding: 15px;
+    }
+}
+/* Esconde a checkbox original */
+.importance-rating {
+    display: none;
+}
+
+/* Cria um novo estilo para a label que parece uma checkbox */
+.importance-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Tamanho da nova "checkbox" */
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 5px; /* Borda arredondada */
+    background-color: #f0f0f0;
+    border: 2px solid #007bff; /* Cor da borda */
+    vertical-align: middle;
+}
+
+/* Estilo quando a checkbox está marcada */
+.importance-rating:checked + .importance-label::before {
+    background-color: #007bff; /* Cor de fundo ao marcar */
+    content: '\2713'; /* Símbolo de verificação */
+    color: white; /* Cor do símbolo de verificação */
+    text-align: center;
+    line-height: 18px; /* Centraliza verticalmente o símbolo de verificação */
+}
+/* Adicione mais media queries conforme necessário para outros ajustes específicos */
