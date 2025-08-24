@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultElement = document.getElementById('result');
     const nameInput = document.getElementById('patientName');
     const ageInput = document.getElementById('patientAge');
+    const nameError = document.getElementById('nameError');
+    const ageError = document.getElementById('ageError');
+    const REQUIRE_PATIENT_NAME = false;
+    const REQUIRE_PATIENT_AGE = false;
+    nameInput.required = REQUIRE_PATIENT_NAME;
+    ageInput.required = REQUIRE_PATIENT_AGE;
     let patientName = '';
     let patientAge = '';
     let lastScore = 0;
@@ -71,6 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     startButton.addEventListener('click', function() {
+        nameError.textContent = '';
+        ageError.textContent = '';
         document.getElementById('introduction').style.display = 'none';
         form.style.display = 'block';
         showGroup(currentGroup);
@@ -87,6 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
         currentGroup = 1;
         showGroup(currentGroup);
         updateButtonVisibility();
+        nameError.textContent = '';
+        ageError.textContent = '';
         document.getElementById('introduction').style.display = 'block';
         resultElement.style.display = 'none';
     });
@@ -118,10 +128,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
         patientName = nameInput.value.trim();
         patientAge = ageInput.value.trim();
+        nameError.textContent = '';
+        ageError.textContent = '';
+        if (REQUIRE_PATIENT_NAME && !patientName) {
+            nameError.textContent = 'O nome é obrigatório.';
+            nameInput.focus();
+            return;
+        }
+        if (REQUIRE_PATIENT_AGE && !patientAge) {
+            ageError.textContent = 'A idade é obrigatória.';
+            ageInput.focus();
+            return;
+        }
         if (patientAge) {
             const ageNumber = parseInt(patientAge, 10);
             if (isNaN(ageNumber) || ageNumber < 0 || ageNumber > 120) {
-                alert('Por favor, insira uma idade válida entre 0 e 120.');
+                ageError.textContent = 'Por favor, insira uma idade válida entre 0 e 120.';
+                ageInput.focus();
                 return;
             }
             patientAge = ageNumber;
@@ -211,6 +234,8 @@ document.addEventListener('DOMContentLoaded', function() {
         currentGroup = 1;
         showGroup(currentGroup);
         updateButtonVisibility();
+        nameError.textContent = '';
+        ageError.textContent = '';
         // Mostrar introdução e esconder o formulário e resultado quando reiniciar
         document.getElementById('introduction').style.display = 'block';
         form.style.display = 'none';

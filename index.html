@@ -22,16 +22,21 @@
             <p class="text-justify">Marcar os itens que considera mais importantes no impacto de sua saúde (máximo de 5 itens)</p>
             <p>Referência: <a href="https://doi.org/10.5935/1808-8694.20120030" target="_blank">SNOT-22: Adaptação cultural e propriedades psicométricas para a língua portuguesa falada no Brasil</a></p>
 
-            <label for="patientName">Nome (opcional)</label>
-            <input type="text" id="patientName" placeholder="Digite seu nome">
-            <label for="patientAge">Idade (opcional)</label>
-            <input type="number" id="patientAge" min="0" max="120" placeholder="Digite sua idade">
-
             <button id="startButton">Iniciar Avaliação SNOT-22</button>
         </div>
-        
+
         <!-- Questionário escondido inicialmente -->
         <form id="snot-22-form">
+            <div id="patient-info">
+                <label for="patientName">Nome</label>
+                <input type="text" id="patientName" placeholder="Digite seu nome completo">
+                <span id="nameError" class="error-message" aria-live="polite"></span>
+
+                <label for="patientAge">Idade</label>
+                <input type="number" id="patientAge" min="0" max="120" placeholder="Digite sua idade">
+                <span id="ageError" class="error-message" aria-live="polite"></span>
+            </div>
+
             <!-- Exemplo de pergunta -->
             <div class="question-group" id="group1">
             

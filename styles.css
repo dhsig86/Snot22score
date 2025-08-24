@@ -65,6 +65,11 @@
 #result li {
     margin-bottom: 5px; /* Espaço entre os itens da lista */
 }
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+}
 .btn-calcular {
     padding: 15px 30px; /* Maior que o padding padrão para ser mais chamativo */
     font-size: 18px; /* Tamanho de fonte maior para mais visibilidade */
