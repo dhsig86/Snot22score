@@ -15,14 +15,18 @@
     <main>
         <div id="introduction">
             <p> <img src="https://i.ibb.co/0hvv7c6/SNOT22-CAPA.png" alt="Descrição da imagem"> </p>
-            <p class="text-justiify">Você encontrará abaixo uma lista de sintomas e consequências sociais e emocionais da sua rinossinusite. Gostaríamos de saber mais sobre estes problemas e pedimos que respondesse às seguintes perguntas da melhor maneira possível. Não há respostas certas ou erradas e somente você pode nos dar essas informações. Por gentileza, dê uma nota para seus problemas conforme se apresentaram nas duas últimas semanas. Obrigado por sua participação.</p>
-            
-            <p class="text-justiify">Considerando a gravidade do problema, quando aparece e a frequência com que acontece; Classifique a gravidade de cada um dos sintomas.</p>
-            
-            <p class="text-justiify">Marcar os itens que considera mais importantes no impacto de sua saúde (máximo de 5 itens)</p>
+            <p class="text-justify">Você encontrará abaixo uma lista de sintomas e consequências sociais e emocionais da sua rinossinusite. Gostaríamos de saber mais sobre estes problemas e pedimos que respondesse às seguintes perguntas da melhor maneira possível. Não há respostas certas ou erradas e somente você pode nos dar essas informações. Por gentileza, dê uma nota para seus problemas conforme se apresentaram nas duas últimas semanas. Obrigado por sua participação.</p>
+
+            <p class="text-justify">Considerando a gravidade do problema, quando aparece e a frequência com que acontece; Classifique a gravidade de cada um dos sintomas.</p>
+
+            <p class="text-justify">Marcar os itens que considera mais importantes no impacto de sua saúde (máximo de 5 itens)</p>
             <p>Referência: <a href="https://doi.org/10.5935/1808-8694.20120030" target="_blank">SNOT-22: Adaptação cultural e propriedades psicométricas para a língua portuguesa falada no Brasil</a></p>
 
-            
+            <label for="patientName">Nome (opcional)</label>
+            <input type="text" id="patientName" placeholder="Digite seu nome">
+            <label for="patientAge">Idade (opcional)</label>
+            <input type="number" id="patientAge" min="0" max="120" placeholder="Digite sua idade">
+
             <button id="startButton">Iniciar Avaliação SNOT-22</button>
         </div>
         
@@ -55,7 +59,7 @@
             </select>
 
             <input type="checkbox" id="importance2" name="importance2" value="Espirros" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance2" class="importance-label"></label>
+            <label for="importance2" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
             
 
             <label for="question3">3. Nariz escorrendo</label>
@@ -69,7 +73,7 @@
             </select>
 
             <input type="checkbox" id="importance3" name="importance3" value="Nariz escorrendo" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance3" class="importance-label"></label>
+            <label for="importance3" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
             
             <label for="question4">4. Tosse</label>
             <select id="question4" name="question4">
@@ -82,7 +86,7 @@
             </select>
 
             <input type="checkbox" id="importance4" name="importance4" value="Tosse" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance4" class="importance-label"></label>
+            <label for="importance4" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
                 
         </div>
 
@@ -112,7 +116,7 @@
             </select>
 
             <input type="checkbox" id="importance6" name="importance6" value="Secreção nasal grossa" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance6" class="importance-label"></label>
+            <label for="importance6" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
             
             <label for="question7">7. Abafamento no ouvido (entupimento do ouvido)</label>
             <select id="question7" name="question7">
@@ -125,7 +129,7 @@
             </select>
 
             <input type="checkbox" id="importance7" name="importance7" value="Ouvido tampado" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance7" class="importance-label"></label>
+            <label for="importance7" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
             
             <label for="question8">8. Tontura</label>
             <select id="question8" name="question8">
@@ -138,7 +142,7 @@
             </select>
         
             <input type="checkbox" id="importance8" name="importance8" value="Tontura" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >    
-            <label for="importance8" class="importance-label"></label>
+            <label for="importance8" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
             
         
         </div>
@@ -168,7 +172,7 @@
             </select>
 
             <input type="checkbox" id="importance10" name="importance10" value="Dor/Pressão na face" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance10" class="importance-label"></label>
+            <label for="importance10" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
             
             <label for="question11">11. Dificuldade de pegar no sono</label>
             <select id="question11" name="question11">
@@ -181,7 +185,7 @@
             </select>
 
             <input type="checkbox" id="importance11" name="importance11" value="Dificuldade para pegar no sono" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance11" class="importance-label"></label>
+            <label for="importance11" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
             
             <label for="question12">12. Acordar no meio da noite</label>
             <select id="question12" name="question12">
@@ -194,7 +198,7 @@
             </select>
 
             <input type="checkbox" id="importance12" name="importance12" value="Acordar durante a noite" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >               
-            <label for="importance12" class="importance-label"></label>
+            <label for="importance12" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
             
         </div>
 
@@ -225,7 +229,7 @@
             </select>
 
             <input type="checkbox" id="importance14" name="importance14" value="Acordar cansado" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance14" class="importance-label"></label>
+            <label for="importance14" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
             
 
             <label for="question15">15. Cansaço/Fadiga ao longo do dia</label>
@@ -239,7 +243,7 @@
             </select>
            
             <input type="checkbox" id="importance15" name="importance15" value="Fadiga" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance15" class="importance-label"></label>
+            <label for="importance15" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
             
 
             <label for="question16">16. Produtividade diminuída(menor rendimento)</label>
@@ -253,7 +257,7 @@
             </select>
 
             <input type="checkbox" id="importance16" name="importance16" value="Produtividade diminuída" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance16" class="importance-label"></label>  
+            <label for="importance16" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>  
         
         </div>
 
@@ -283,7 +287,7 @@
             </select>
 
             <input type="checkbox" id="importance18" name="importance18" value="Frustrado / Inquieto / Irritado" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance18" class="importance-label"></label>
+            <label for="importance18" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
 
             <label for="question19">19. Triste</label>
             <select id="question19" name="question19">
@@ -296,7 +300,7 @@
             </select>
 
             <input type="checkbox" id="importance19" name="importance19" value="Triste" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance19" class="importance-label"></label>
+            <label for="importance19" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
 
             <label for="question20">20. Constrangido(Envergonhado com a doença)</label>
             <select id="question20" name="question20">
@@ -309,7 +313,7 @@
             </select>
         
             <input type="checkbox" id="importance20" name="importance20" value="Envergonhado com a doença" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
-            <label for="importance20" class="importance-label"></label>
+            <label for="importance20" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
 
             </div>
 
@@ -324,7 +328,7 @@
                 <option value="5">Problema muito grave</option>
             </select>
 
-            <input type="checkbox" id="importance21" name="importance13" value="Percepção do olfato (cheiro) ou do gosto" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
+            <input type="checkbox" id="importance21" name="importance21" value="Percepção do olfato (cheiro) ou do gosto" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >
             <label for="importance21" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
             
             <label for="question22">22. Nariz trancado/entupido</label>
@@ -337,8 +341,8 @@
                 <option value="5">Problema muito grave</option>
             </select>
         
-            <input type="checkbox" id="importance22" name="importance13" value="Nariz trancado/entupido" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >    
-            <label for="importance22" class="importance-label"></label>
+            <input type="checkbox" id="importance22" name="importance22" value="Nariz trancado/entupido" class="importance-rating" aria-label = "Marcar como um dos 5 sintomas mais impactantes" >    
+            <label for="importance22" class="importance-label">Marque se for um dos 5 sintomas mais impactantes</label>
 
         </div>
 
@@ -354,7 +358,9 @@
             <button type="reset" id="restartButton" class="btn btn-info">Reiniciar</button>
         </form>
         <div id="result"></div>
+        <button type="button" id="exportButton" class="btn btn-secondary" style="display:none;">Exportar Relatório</button>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="calculator.js"></script>
 </body>
 </html>
