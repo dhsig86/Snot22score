@@ -39,28 +39,46 @@ document.addEventListener('DOMContentLoaded', function() {
     let lastFontColor = 'black';
     let currentGroup = 1;
     const totalGroups = 6;
+    const progressSteps = document.querySelectorAll('.progress-step');
 
     function updateButtonVisibility() {
         if (prevButton) prevButton.style.display = currentGroup === 1 ? 'none' : 'inline-block';
         if (nextButton) nextButton.style.display = currentGroup === totalGroups ? 'none' : 'inline-block';
         if (calculateButton) calculateButton.style.display = currentGroup === totalGroups ? 'block' : 'none';
+
+        if (restartButton) restartButton.style.display = 'none';
     }
 
+    progressSteps.forEach(step => {
+        step.addEventListener('click', () => {
+            const targetGroup = parseInt(step.dataset.group, 10);
+            currentGroup = targetGroup;
+            showGroup(currentGroup);
+            updateButtonVisibility();
+        });
+    });
+
+
     function navigate(direction) {
-        document.getElementById(`group${currentGroup}`).style.display = 'none';
         currentGroup += direction;
         currentGroup = Math.max(1, Math.min(currentGroup, totalGroups));
         showGroup(currentGroup);
         updateButtonVisibility();
     }
 
+
     function showGroup(groupNumber) {
         document.querySelectorAll('.question-group').forEach(group => {
+            group.classList.remove('active');
             group.style.display = 'none';
         });
-        document.getElementById(`group${groupNumber}`).style.display = 'block';
+        const groupElement = document.getElementById(`group${groupNumber}`);
+        groupElement.style.display = 'block';
+        requestAnimationFrame(() => {
+            groupElement.classList.add('active');
+        });
         // Garantir que a navegação e resultado estão escondidos inicialmente
-        document.querySelectorAll('.navigation-buttons, #resultContainer').forEach(el => {
+        document.querySelectorAll('.navigation-buttons, #result').forEach(el => {
             el.style.display = 'none';
         });
         if(groupNumber > 1) {
@@ -69,13 +87,15 @@ document.addEventListener('DOMContentLoaded', function() {
         updateProgressBar(groupNumber);
     }
 
+
     function updateProgressBar(currentGroup) {
-        // O número total de grupos deve corresponder ao número de grupos de perguntas que você tem.
         const totalGroups = document.querySelectorAll('.question-group').length;
-        // A porcentagem de progresso deve ser calculada com base no grupo atual dividido pelo total de grupos.
-        // Note que estamos usando currentGroup - 1 porque queremos começar com 0% no grupo 1.
         const progressPercentage = ((currentGroup - 1) / (totalGroups - 1)) * 100;
         document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
+        document.querySelectorAll('.progress-step').forEach(step => {
+            const stepGroup = parseInt(step.dataset.group, 10);
+            step.classList.toggle('active', stepGroup <= currentGroup);
+        });
     }
 
     startButton.addEventListener('click', function() {
@@ -92,7 +112,20 @@ document.addEventListener('DOMContentLoaded', function() {
     prevButton.addEventListener('click', function() { navigate(-1); });
     nextButton.addEventListener('click', function() { navigate(1); });
 
+
+    restartButton.addEventListener('click', function() {
+        form.reset();
+        currentGroup = 1;
+        showGroup(currentGroup);
+        updateButtonVisibility();
+        nameError.textContent = '';
+        ageError.textContent = '';
+        document.getElementById('introduction').style.display = 'block';
+        resultElement.style.display = 'none';
+    });
+
     const checkboxes = document.querySelectorAll('.importance-rating');
+
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             const checkedBoxes = document.querySelectorAll('.importance-rating:checked');
