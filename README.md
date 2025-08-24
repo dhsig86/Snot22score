@@ -1,40 +1,43 @@
-Snot22score
-Snot22score é uma aplicação web projetada para calcular e avaliar o escore SNOT-22 (Sinonasal Outcome Test 22), um questionário utilizado para medir a gravidade dos sintomas nasossinusais em pacientes.
+# Snot22score
 
-Funcionalidades
-Cálculo do SNOT-22: Permite que os pacientes insiram suas respostas ao questionário SNOT-22 e calcula automaticamente o escore total.
-Interface Amigável: Interface simples e intuitiva para facilitar o uso tanto por pacientes quanto por profissionais de saúde.
-Resultados Imediatos: Exibe os resultados imediatamente após a submissão do questionário.
-Tecnologias Utilizadas
-Frontend: HTML, CSS, JavaScript
-Hospedagem: GitHub Pages
-Estrutura do Projeto
-bash
-Copiar código
-Snot22score/
-│
-├── css/                  # Estilos CSS
-├── images/               # Imagens do projeto
-├── js/                   # Scripts JavaScript
-├── index.html            # Página inicial
-├── .gitignore            # Arquivos e pastas ignorados pelo Git
-└── README.md             # Documentação do projeto
-Como Acessar
-Você pode acessar a aplicação Snot22score através do seguinte link:
-Snot22score
+Aplicação web para calcular o escore **SNOT-22** (Sinonasal Outcome Test 22), questionário utilizado para avaliar a gravidade dos sintomas nasossinusais.
 
-Configuração do Ambiente
-Clone o repositório:
+## Estrutura do projeto
 
-sh
-Copiar código
-git clone https://github.com/dhsig86/Snot22score.git
-cd Snot22score
-Abra o arquivo index.html no seu navegador:
-Você pode simplesmente abrir o arquivo index.html em qualquer navegador para visualizar a aplicação localmente.
+- `index.html` – página principal com o formulário do questionário.
+- `styles.css` – estilos da interface.
+- `calculator.js` – lógica de navegação, cálculo da pontuação e exportação do relatório em PDF.
+- `calculator.test.js` – testes de unidade para a função de avaliação da pontuação.
 
-Contribuições
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests. Para grandes mudanças, por favor, abra um issue primeiro para discutir o que você gostaria de mudar.
+## Como executar localmente
 
-Licença
-Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/dhsig86/Snot22score.git
+   cd Snot22score
+   ```
+2. Abra o arquivo `index.html` em qualquer navegador para usar a calculadora.
+3. (Opcional) Instale as dependências e execute os testes:
+   ```bash
+   npm install
+   npm test
+   ```
+
+## Funcionalidades
+
+- Questionário de 22 itens com navegação por grupos e barra de progresso.
+- Cálculo automático da pontuação total e destaque por cores conforme a gravidade.
+- Seleção dos cinco sintomas mais impactantes.
+- Geração de relatório em PDF com os resultados.
+
+## Contribuindo
+
+Contribuições são bem-vindas!
+
+1. Faça um fork do projeto e crie uma branch para sua feature ou correção.
+2. Instale as dependências e garanta que os testes (`npm test`) passem.
+3. Envie um pull request descrevendo suas mudanças.
+
+## Licença
+
+Projeto licenciado sob os termos da licença MIT.
