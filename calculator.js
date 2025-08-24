@@ -1,4 +1,18 @@
+
+function getScoreColor(score) {
+    if (score >= 0 && score <= 36) {
+        return { fontColor: 'green', backgroundColor: '#d4edda' };
+    } else if (score >= 37 && score <= 74) {
+        return { fontColor: 'darkgoldenrod', backgroundColor: '#fff3cd' };
+    } else if (score >= 75 && score <= 110) {
+        return { fontColor: 'red', backgroundColor: '#f8d7da' };
+    }
+    return { fontColor: 'black', backgroundColor: 'transparent' };
+}
+
+if (typeof document !== 'undefined') {
 document.addEventListener('DOMContentLoaded', function() {
+
     const startButton = document.getElementById('startButton');
     const prevButton = document.getElementById('prevButton');
     const nextButton = document.getElementById('nextButton');
@@ -132,23 +146,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Função para exibir o resultado e ajustar a cor do texto baseado na pontuação
     
     function displayResult(score, top5SymptomsLabels) {
-        let fontColor, backgroundColor;
-        if (score >= 0 && score <= 36) {
-            fontColor = 'green';
-            backgroundColor = '#d4edda'; // Verde claro para o fundo
-        } else if (score >= 37 && score <= 74) {
-            fontColor = 'darkgoldenrod';
-            backgroundColor = '#fff3cd'; // Amarelo claro para o fundo
-        } else if (score >= 75 && score <= 110) {
-            fontColor = 'red';
-            backgroundColor = '#f8d7da'; // Vermelho claro para o fundo
-        }
-        resultElement.style.color = fontColor;
-        resultElement.style.backgroundColor = backgroundColor;
-        resultElement.style.borderLeft = `5px solid ${fontColor}`;
+
+        const colors = getScoreColor(score);
+        resultElement.style.color = colors.fontColor;
+        resultElement.style.backgroundColor = colors.backgroundColor;
+        resultElement.style.borderLeft = `5px solid ${colors.fontColor}`;
         lastScore = score;
         lastTopSymptoms = top5SymptomsLabels;
-        lastFontColor = fontColor;
+        lastFontColor = colors.fontColor;
+
     
         const scoreHtml = `<h2 style="margin-top: 0;">Pontuação SNOT-22: <strong>${score}</strong></h2>`;
         const impactHtml = `<p>Uma pontuação mais alta indica uma pior qualidade de vida.</p>`;
@@ -212,6 +218,11 @@ document.addEventListener('DOMContentLoaded', function() {
         exportButton.style.display = 'none';
     });
         
-   
+
 });
+}
+
+if (typeof module !== 'undefined') {
+    module.exports = { getScoreColor };
+}
 
