@@ -17,8 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevButton = document.getElementById('prevButton');
     const nextButton = document.getElementById('nextButton');
     const calculateButton = document.getElementById('calculateButton');
-    const restartButton = document.getElementById('restartButton');
     const exportButton = document.getElementById('exportButton');
+    const backButton = document.getElementById('backButton');
+    const resetButton = document.getElementById('resetButton');
+    const spinner = document.getElementById('spinner');
+    const resultContainer = document.getElementById('resultContainer');
     const form = document.getElementById('snot-22-form');
     const resultElement = document.getElementById('result');
     const nameInput = document.getElementById('patientName');
@@ -41,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (prevButton) prevButton.style.display = currentGroup === 1 ? 'none' : 'inline-block';
         if (nextButton) nextButton.style.display = currentGroup === totalGroups ? 'none' : 'inline-block';
         if (calculateButton) calculateButton.style.display = currentGroup === totalGroups ? 'block' : 'none';
-        if (restartButton) restartButton.style.display = 'none';
     }
 
     function navigate(direction) {
@@ -58,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         document.getElementById(`group${groupNumber}`).style.display = 'block';
         // Garantir que a navegação e resultado estão escondidos inicialmente
-        document.querySelectorAll('.navigation-buttons, #result').forEach(el => {
+        document.querySelectorAll('.navigation-buttons, #resultContainer').forEach(el => {
             el.style.display = 'none';
         });
         if(groupNumber > 1) {
@@ -90,27 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
     prevButton.addEventListener('click', function() { navigate(-1); });
     nextButton.addEventListener('click', function() { navigate(1); });
 
-    restartButton.addEventListener('click', function() {
-        form.reset();
-        currentGroup = 1;
-        showGroup(currentGroup);
-        updateButtonVisibility();
-        nameError.textContent = '';
-        ageError.textContent = '';
-        document.getElementById('introduction').style.display = 'block';
-        resultElement.style.display = 'none';
-    });
-
-    function updateButtonVisibility() {
-        if (prevButton) prevButton.style.display = currentGroup === 1 ? 'none' : 'inline-block';
-        if (nextButton) nextButton.style.display = currentGroup === totalGroups ? 'none' : 'inline-block';
-        
-        // Supondo que você tem um botão 'Calcular' que só deve ser mostrado no último grupo
-        const calculateButton = document.getElementById('calculateButton');
-        if (calculateButton) calculateButton.style.display = currentGroup === totalGroups ? 'block' : 'none';
-    }
-    
-       
     const checkboxes = document.querySelectorAll('.importance-rating');
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function() {
@@ -150,20 +131,26 @@ document.addEventListener('DOMContentLoaded', function() {
             patientAge = ageNumber;
         }
 
-        // Coletar os valores das respostas das 22 questões
-        const responses = Array.from(document.querySelectorAll('select[name^="question"]'))
-                               .map(select => parseInt(select.value, 10));
+        form.style.display = 'none';
+        resultContainer.style.display = 'block';
+        spinner.style.display = 'block';
+        resultElement.style.display = 'none';
+        exportButton.style.display = 'none';
+        backButton.style.display = 'none';
+        resetButton.style.display = 'none';
 
-        // Calcular a soma dos valores (até 110 agora)
-        const sum = responses.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        setTimeout(() => {
+            const responses = Array.from(document.querySelectorAll('select[name^="question"]'))
+                                   .map(select => parseInt(select.value, 10));
 
-        // Identificar os sintomas mais impactantes baseados no texto do label associado
-        const topSymptomsLabels = Array.from(document.querySelectorAll('.importance-rating:checked'))
-                               .map(checkbox => checkbox.value);
+            const sum = responses.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
+            const topSymptomsLabels = Array.from(document.querySelectorAll('.importance-rating:checked'))
+                                   .map(checkbox => checkbox.value);
 
-        // Exibir o resultado e os sintomas mais impactantes
-        displayResult(sum, topSymptomsLabels);
+            displayResult(sum, topSymptomsLabels);
+            spinner.style.display = 'none';
+        }, 500);
     });
     
     // Função para exibir o resultado e ajustar a cor do texto baseado na pontuação
@@ -189,8 +176,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
         resultElement.innerHTML = `${scoreHtml}${impactHtml}${symptomsListHtml}`;
         resultElement.style.display = 'block';
-        restartButton.style.display = 'block'; // Mostra o botão de reiniciar
-        exportButton.style.display = 'block';
+        exportButton.style.display = 'inline-block';
+        backButton.style.display = 'inline-block';
+        resetButton.style.display = 'inline-block';
 
         // Ajuste para melhor visualização do resultado
         window.scrollTo(0, 0); // Opcional: rola a página para o topo para exibir o resultado
@@ -228,19 +216,23 @@ document.addEventListener('DOMContentLoaded', function() {
         doc.save('relatorio_snot22.pdf');
     });
 
-    // Evento de clique para o botão "Reiniciar"
-    restartButton.addEventListener('click', function() {
+    backButton.addEventListener('click', function() {
+        resultContainer.style.display = 'none';
+        form.style.display = 'block';
+        showGroup(currentGroup);
+        updateButtonVisibility();
+    });
+
+    resetButton.addEventListener('click', function() {
         form.reset();
         currentGroup = 1;
         showGroup(currentGroup);
         updateButtonVisibility();
         nameError.textContent = '';
         ageError.textContent = '';
-        // Mostrar introdução e esconder o formulário e resultado quando reiniciar
         document.getElementById('introduction').style.display = 'block';
         form.style.display = 'none';
-        document.getElementById('result').style.display = 'none';
-        exportButton.style.display = 'none';
+        resultContainer.style.display = 'none';
     });
         
 

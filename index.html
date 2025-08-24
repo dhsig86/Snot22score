@@ -360,10 +360,17 @@
                 <button type="button" id="nextButton" class="btn btn-primary">Próximo</button>
             </div>
             <button type="submit" id="calculateButton" class="btn btn-success btn-calcular">Calcular</button>
-            <button type="reset" id="restartButton" class="btn btn-info">Reiniciar</button>
         </form>
-        <div id="result"></div>
-        <button type="button" id="exportButton" class="btn btn-secondary" style="display:none;">Exportar Relatório</button>
+
+        <div id="resultContainer" style="display:none; text-align:center;">
+            <div id="spinner" style="display:none;">Calculando...</div>
+            <div id="result"></div>
+            <div class="result-buttons" style="margin-top:20px;">
+                <button type="button" id="exportButton" class="btn btn-secondary">Exportar Relatório</button>
+                <button type="button" id="backButton" class="btn btn-primary">Voltar ao Questionário</button>
+                <button type="button" id="resetButton" class="btn btn-info">Reset</button>
+            </div>
+        </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="calculator.js"></script>
