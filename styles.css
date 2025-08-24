@@ -110,7 +110,7 @@
     cursor: pointer; /* Cursor de clique */
     margin-top: 20px; /* Espaço acima do botão */
     display: block; /* Exibir como bloco */
-    width: auto; /* Largura automática baseada no conteúdo */
+    width: 200px; /* Largura definida */
     margin: 20px auto; /* Centraliza o botão horizontalmente */
     transition: background-color 0.3s, transform 0.3s, font-size 0.3s; /* Transição suave para hover e clique */
 }
@@ -123,13 +123,6 @@
 
 #restartButton:active {
     transform: translateY(1px); /* Movimento de "apertar" */
-}
-
-
-#restartButton {
-    display: block; /* Para ser exibido como um bloco */
-    width: 200px; /* Largura definida */
-    margin: 20px auto; /* Centraliza o botão horizontalmente */
 }
 
 

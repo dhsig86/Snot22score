@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const exportButton = document.getElementById('exportButton');
     const backButton = document.getElementById('backButton');
     const resetButton = document.getElementById('resetButton');
+    const restartButton = document.getElementById('restartButton');
     const spinner = document.getElementById('spinner');
     const resultContainer = document.getElementById('resultContainer');
     const form = document.getElementById('snot-22-form');
