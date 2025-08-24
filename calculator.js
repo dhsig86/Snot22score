@@ -1,3 +1,4 @@
+
 function getScoreColor(score) {
     if (score >= 0 && score <= 36) {
         return { fontColor: 'green', backgroundColor: '#d4edda' };
@@ -11,6 +12,7 @@ function getScoreColor(score) {
 
 if (typeof document !== 'undefined') {
 document.addEventListener('DOMContentLoaded', function() {
+
     const startButton = document.getElementById('startButton');
     const prevButton = document.getElementById('prevButton');
     const nextButton = document.getElementById('nextButton');
@@ -144,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Função para exibir o resultado e ajustar a cor do texto baseado na pontuação
     
     function displayResult(score, top5SymptomsLabels) {
+
         const colors = getScoreColor(score);
         resultElement.style.color = colors.fontColor;
         resultElement.style.backgroundColor = colors.backgroundColor;
@@ -151,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScore = score;
         lastTopSymptoms = top5SymptomsLabels;
         lastFontColor = colors.fontColor;
+
     
         const scoreHtml = `<h2 style="margin-top: 0;">Pontuação SNOT-22: <strong>${score}</strong></h2>`;
         const impactHtml = `<p>Uma pontuação mais alta indica uma pior qualidade de vida.</p>`;
