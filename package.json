@@ -1,0 +1,16 @@
+{
+  "name": "snot22score",
+  "version": "1.0.0",
+  "description": "Snot22score Snot22score é uma aplicação web projetada para calcular e avaliar o escore SNOT-22 (Sinonasal Outcome Test 22), um questionário utilizado para medir a gravidade dos sintomas nasossinusais em pacientes.",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^30.0.5"
+  }
+}
