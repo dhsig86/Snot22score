@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
             doc.text(`- ${symptom}`, 10, y);
             y += 10;
         });
-        doc.text('Referência: SNOT-22: Adaptação cultural e propriedades psicométricas para a língua portuguesa falada no Brasil', 10, y, {maxWidth: 180});
+        doc.text('Referência: BEZERRA, Patrícia F. M.; DORTA, M.; RIBEIRO, H. C.; LESSA, M. M.; VOEGELS, R. L. SNOT-22: Adaptação cultural e propriedades psicométricas para a língua portuguesa falada no Brasil. Revista Brasileira de Otorrinolaringologia, 2012. DOI: 10.5935/1808-8694.20120030. Disponível em: https://doi.org/10.5935/1808-8694.20120030', 10, y, {maxWidth: 180});
         doc.save('relatorio_snot22.pdf');
     });
 
