@@ -163,26 +163,15 @@ label {
 }
 
 select {
-    border: 2px solid #007bff; /* Borda azul */
-    border-radius: 4px; /* Bordas arredondadas */
-    padding: 5px; /* Padding interno */
-    margin-top: 5px; /* Espaço acima do seletor */
-    background-color: #f8f8f8; /* Cor de fundo */
-    -webkit-appearance: none; /* Remove estilo padrão no Chrome e Safari */
-    -moz-appearance: none; /* Remove estilo padrão no Firefox */
-    appearance: none; /* Remove estilo padrão para outros navegadores */
-}
-
-
-select {
     -webkit-appearance: none; /* Remove o estilo padrão no Chrome e Safari */
     -moz-appearance: none; /* Remove o estilo padrão no Firefox */
     appearance: none; /* Remove o estilo padrão para outros navegadores */
     padding: 10px;
     padding-right: 30px;
+    margin-top: 5px; /* Espaço acima do seletor */
     border: 1px solid #007bff; /* Cor da borda */
     border-radius: 5px; /* Borda arredondada */
-    background-color: #f8f8f8;
+    background-color: #f8f8f8; /* Cor de fundo */
     position: relative;
     background-image: url('https://i.ibb.co/rQnvVkm/arrow-down.png'); /* Caminho para um ícone de seta */
     background-repeat: no-repeat;
