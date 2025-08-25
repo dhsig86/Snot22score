@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const ageInput = document.getElementById('patientAge');
     const nameError = document.getElementById('nameError');
     const ageError = document.getElementById('ageError');
+    const DEBUG_CHECKBOXES = false; // Enable to log checked boxes for debugging
     const REQUIRE_PATIENT_NAME = false;
     const REQUIRE_PATIENT_AGE = false;
     nameInput.required = REQUIRE_PATIENT_NAME;
@@ -41,6 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentGroup = 1;
     const totalGroups = 6;
     const progressSteps = document.querySelectorAll('.progress-step');
+
+    function debugLog(...args) {
+        if (DEBUG_CHECKBOXES) {
+            console.log(...args);
+        }
+    }
 
     function updateButtonVisibility() {
         if (prevButton) prevButton.style.display = currentGroup === 1 ? 'none' : 'inline-block';
@@ -130,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             const checkedBoxes = document.querySelectorAll('.importance-rating:checked');
-            console.log(checkedBoxes);
+            debugLog(checkedBoxes);
             if (checkedBoxes.length > 5) {
                 alert('Você só pode selecionar até 5 sintomas como os mais impactantes.');
                 checkbox.checked = false;
