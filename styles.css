@@ -237,6 +237,13 @@ select:focus {
 .btn-success:hover {
     background-color: #218838;
 }
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    display: block;
+    margin: 20px auto;
+}
 #snot-20-form, .question-group {
     display: none;
 }
