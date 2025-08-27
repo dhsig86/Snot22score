@@ -301,6 +301,14 @@ select {
     display: none;
 }
 
+/* Estilo para o texto da checkbox de importância */
+.importance-label {
+    font-weight: normal;
+    font-size: 0.85em;
+    color: #555;
+    display: inline-block;
+}
+
 /* Cria um novo estilo para a label que parece uma checkbox */
 .importance-label::before {
     content: '';
