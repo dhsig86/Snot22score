@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resultElement.style.display = 'block';
         exportButton.style.display = 'inline-block';
         backButton.style.display = 'inline-block';
-        resetButton.style.display = 'inline-block';
+        resetButton.style.display = 'block';
 
         // Ajuste para melhor visualização do resultado
         window.scrollTo(0, 0); // Opcional: rola a página para o topo para exibir o resultado
