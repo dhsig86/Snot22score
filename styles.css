@@ -178,6 +178,27 @@ select {
     background-position: right 10px center; /* Posiciona o ícone de seta */
     background-size: 15px; /* Tamanho do ícone de seta */
     font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:hover,
+select:focus {
+    background-color: #e9ecef;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.select-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.select-wrapper select {
+    width: 100%;
 }
 
 .btn {
