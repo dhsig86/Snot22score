@@ -31,6 +31,35 @@ describe('getScoreColor', () => {
   });
 });
 
+describe('getScoreClassification', () => {
+  const { getScoreClassification } = require('./calculator');
+
+  test('returns low impact message for low scores', () => {
+    expect(getScoreClassification(10)).toBe('Impacto leve');
+  });
+
+  test('returns moderate impact message for medium scores', () => {
+    expect(getScoreClassification(50)).toBe('Impacto moderado');
+  });
+
+  test('returns high impact message for high scores', () => {
+    expect(getScoreClassification(100)).toBe('Impacto grave');
+  });
+
+  test('uses low impact message for boundary score 36', () => {
+    expect(getScoreClassification(36)).toBe('Impacto leve');
+  });
+
+  test('uses moderate impact message for boundary scores 37 and 74', () => {
+    expect(getScoreClassification(37)).toBe('Impacto moderado');
+    expect(getScoreClassification(74)).toBe('Impacto moderado');
+  });
+
+  test('uses high impact message for boundary score 75', () => {
+    expect(getScoreClassification(75)).toBe('Impacto grave');
+  });
+});
+
 function setupDOM() {
   document.body.innerHTML = `
     <button id="startButton"></button>

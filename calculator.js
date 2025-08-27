@@ -10,6 +10,17 @@ function getScoreColor(score) {
     return { fontColor: 'black', backgroundColor: 'transparent' };
 }
 
+function getScoreClassification(score) {
+    if (score >= 0 && score <= 36) {
+        return 'Impacto leve';
+    } else if (score >= 37 && score <= 74) {
+        return 'Impacto moderado';
+    } else if (score >= 75 && score <= 110) {
+        return 'Impacto grave';
+    }
+    return '';
+}
+
 if (typeof document !== 'undefined') {
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -208,6 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
         const scoreHtml = `<h2 style="margin-top: 0;">Pontuação SNOT-22: <strong>${score}</strong></h2>`;
+        const classificationHtml = `<p>${getScoreClassification(score)}</p>`;
         const impactHtml = `<p>Uma pontuação mais alta indica uma pior qualidade de vida.</p>`;
         let symptomsListHtml = '<h3>Piores Sintomas:</h3><ul>';
         for (let symptom of top5SymptomsLabels) {
@@ -215,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         symptomsListHtml += '</ul>';
     
-        resultElement.innerHTML = `${scoreHtml}${impactHtml}${symptomsListHtml}`;
+        resultElement.innerHTML = `${scoreHtml}${classificationHtml}${impactHtml}${symptomsListHtml}`;
         resultElement.style.display = 'block';
         exportButton.style.display = 'inline-block';
         backButton.style.display = 'inline-block';
@@ -247,6 +259,8 @@ document.addEventListener('DOMContentLoaded', function() {
         doc.text(`Pontuação SNOT-22: ${lastScore}`, 10, y);
         y += 10;
         doc.setTextColor(0, 0, 0);
+        doc.text(getScoreClassification(lastScore), 10, y);
+        y += 10;
         doc.text('Sintomas mais impactantes:', 10, y);
         y += 10;
         lastTopSymptoms.forEach(symptom => {
@@ -281,6 +295,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 if (typeof module !== 'undefined') {
-    module.exports = { getScoreColor };
+    module.exports = { getScoreColor, getScoreClassification };
 }
 
